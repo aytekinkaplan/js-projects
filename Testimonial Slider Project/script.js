@@ -57,24 +57,18 @@ fetch("./comments_name.json")
       slider.appendChild(testimonial);
     });
 
-    // Set the width of the slider
-    const cardWidth = 330; // Width of each card including margin
-    const totalWidth = testimonials.length * 2 * cardWidth;
-    slider.style.width = `${totalWidth}px`;
-
-    // Start the animation
     startSliderAnimation();
   })
   .catch((error) => console.error("Error loading JSON:", error));
 
 function startSliderAnimation() {
+  const speed = 1; // Pixels per frame
+  const sliderWidth = slider.offsetWidth;
   let position = 0;
-  const speed = 0.5; // Reduced speed for smoother animation
-  const totalWidth = slider.offsetWidth / 2;
 
   function animate() {
     position -= speed;
-    if (position <= -totalWidth) {
+    if (Math.abs(position) >= sliderWidth / 2) {
       position = 0;
     }
     slider.style.transform = `translateX(${position}px)`;
@@ -83,7 +77,6 @@ function startSliderAnimation() {
 
   animate();
 
-  // Pause animation on hover
   slider.addEventListener("mouseenter", () => {
     slider.style.animationPlayState = "paused";
   });
