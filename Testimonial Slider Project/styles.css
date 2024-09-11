@@ -2,43 +2,39 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
-  background-color: #f4f4f4;
-  min-height: 100vh;
+  font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: #f4f4f4;
 }
 
 .slider-container {
   width: 100%;
+  max-width: 1200px;
   overflow: hidden;
-  padding: 20px 0;
   position: relative;
 }
 
 #slider {
   display: flex;
-  position: absolute;
-  left: 0;
   transition: transform 0.5s ease;
 }
 
 .container {
   flex: 0 0 300px;
+  height: 400px;
+  margin: 0 15px;
+  padding: 30px;
   background-color: #6a2fc4;
   border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin: 0 15px;
-  text-align: center;
   color: white;
+  text-align: center;
   position: relative;
-  font-family: "Georgia", serif;
   transition: transform 0.3s ease;
 }
 
@@ -55,68 +51,34 @@ body {
   top: -50px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
 }
 
 .circled_area img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid white;
 }
 
 .reactangle_area {
   padding-top: 60px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .comment {
   font-size: 1rem;
   line-height: 1.6;
   font-style: italic;
-  margin-bottom: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 
 .name_area {
   font-size: 0.9rem;
   font-weight: bold;
-  color: #e0e0e0;
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-#slider {
-  animation: slide 30s linear infinite;
-}
-
-#slider:hover {
-  animation-play-state: paused;
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex: 0 0 250px;
-    padding: 20px;
-  }
-
-  .circled_area {
-    width: 80px;
-    height: 80px;
-    top: -40px;
-  }
-
-  .comment {
-    font-size: 0.9rem;
-  }
-
-  .name_area {
-    font-size: 0.8rem;
-  }
+  margin-top: auto;
 }
