@@ -56,5 +56,38 @@ fetch("./comments_name.json")
       const testimonial = sliderMaker(person.comment, person.name);
       slider.appendChild(testimonial);
     });
+
+    // Set the width of the slider
+    const totalWidth = testimonials.length * 2 * 330; // 330px for each testimonial, doubled for the loop
+    slider.style.width = `${totalWidth}px`;
+
+    // Start the animation
+    startSliderAnimation();
   })
   .catch((error) => console.error("Error loading JSON:", error));
+
+function startSliderAnimation() {
+  let position = 0;
+  const speed = 1; // Adjust this value to change the speed of the animation
+  const totalWidth = slider.offsetWidth / 2;
+
+  function animate() {
+    position -= speed;
+    if (position <= -totalWidth) {
+      position = 0;
+    }
+    slider.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // Pause animation on hover
+  slider.addEventListener("mouseenter", () => {
+    slider.style.animationPlayState = "paused";
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    slider.style.animationPlayState = "running";
+  });
+}

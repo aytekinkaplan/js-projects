@@ -18,10 +18,13 @@ body {
   width: 100%;
   overflow: hidden;
   padding: 20px 0;
+  position: relative;
 }
 
 #slider {
   display: flex;
+  position: absolute;
+  left: 0;
   transition: transform 0.5s ease;
 }
 
@@ -85,7 +88,7 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
