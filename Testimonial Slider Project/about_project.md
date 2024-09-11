@@ -15,6 +15,10 @@ Check out the live demo: [Testimonial Slider Pro](https://testimonial-slider-pro
 - Circular profile images for each testimonial
 - Seamless loop for continuous display
 
+## Screenshot
+
+![Testimonial Slider Screenshot](screenshot.png)
+
 ## Installation
 
 To run this project locally:
