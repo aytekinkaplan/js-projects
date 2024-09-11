@@ -11,13 +11,14 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: #f4f4f4;
+  overflow-x: hidden;
 }
 
 .slider-container {
-  width: 100%;
-  max-width: 1200px;
+  width: 100vw;
   overflow: hidden;
   position: relative;
+  padding: 60px 0 20px; /* Added top padding for circled_area visibility */
 }
 
 #slider {
@@ -29,7 +30,7 @@ body {
   flex: 0 0 300px;
   height: 400px;
   margin: 0 15px;
-  padding: 30px;
+  padding: 80px 30px 30px; /* Increased top padding */
   background-color: #6a2fc4;
   border-radius: 20px;
   color: white;
@@ -48,9 +49,10 @@ body {
   border-radius: 50%;
   overflow: hidden;
   position: absolute;
-  top: -50px;
+  top: -40px; /* Adjusted to make it visible */
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 .circled_area img {
@@ -60,7 +62,6 @@ body {
 }
 
 .reactangle_area {
-  padding-top: 60px;
   height: 100%;
   display: flex;
   flex-direction: column;

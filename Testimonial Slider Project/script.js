@@ -1,4 +1,5 @@
 const slider = document.getElementById("slider");
+let isMouseOver = false;
 
 const sliderMaker = (comment, name) => {
   const container = document.createElement("div");
@@ -63,25 +64,41 @@ fetch("./comments_name.json")
 
 function startSliderAnimation() {
   const speed = 1; // Pixels per frame
-  const sliderWidth = slider.offsetWidth;
+  const sliderWidth = slider.scrollWidth;
   let position = 0;
 
   function animate() {
-    position -= speed;
-    if (Math.abs(position) >= sliderWidth / 2) {
-      position = 0;
+    if (!isMouseOver) {
+      position -= speed;
+      if (Math.abs(position) >= sliderWidth / 2) {
+        position = 0;
+      }
+      slider.style.transform = `translateX(${position}px)`;
     }
-    slider.style.transform = `translateX(${position}px)`;
     requestAnimationFrame(animate);
   }
 
   animate();
 
-  slider.addEventListener("mouseenter", () => {
-    slider.style.animationPlayState = "paused";
+  slider.addEventListener("mouseover", (e) => {
+    if (e.target.closest(".container")) {
+      isMouseOver = true;
+    }
   });
 
-  slider.addEventListener("mouseleave", () => {
-    slider.style.animationPlayState = "running";
+  slider.addEventListener("mouseout", () => {
+    isMouseOver = false;
   });
 }
+
+// Adjust slider width based on screen size
+function adjustSliderWidth() {
+  const containerWidth =
+    document.querySelector(".slider-container").offsetWidth;
+  const slideWidth = 330; // Width of each slide including margin
+  const visibleSlides = Math.floor(containerWidth / slideWidth);
+  slider.style.width = `${slider.children.length * slideWidth}px`;
+}
+
+window.addEventListener("resize", adjustSliderWidth);
+adjustSliderWidth(); // Call on initial load
