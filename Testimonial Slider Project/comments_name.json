@@ -1,0 +1,42 @@
+{
+  "ali": {
+    "name": "Ali",
+    "comment": "This is the best name ever. I've had a fantastic experience with this product. It exceeded all my expectations and I highly recommend it to everyone."
+  },
+  "ahmet": {
+    "name": "Ahmet",
+    "comment": "This product really impressed me. The design and functionality are top-notch. I will definitely continue using it in the future."
+  },
+  "ayşe": {
+    "name": "Ayşe",
+    "comment": "I was a bit skeptical at first, but this turned out to be one of the best purchases I've ever made. It's exactly what I needed."
+  },
+  "mehmet": {
+    "name": "Mehmet",
+    "comment": "I’ve tried many similar products, but this one truly stands out. The attention to detail and quality are remarkable."
+  },
+  "elif": {
+    "name": "Elif",
+    "comment": "Excellent service and an excellent product! I can’t believe how easy it was to use and how much it improved my daily routine."
+  },
+  "fatma": {
+    "name": "Fatma",
+    "comment": "The user interface is intuitive and the overall performance is stellar. I would definitely recommend this to my friends and family."
+  },
+  "kemal": {
+    "name": "Kemal",
+    "comment": "The product delivered as promised, and it surpassed my expectations. The customer service was also fantastic. Highly recommend!"
+  },
+  "zeynep": {
+    "name": "Zeynep",
+    "comment": "I’ve been using this for a while now, and it has been a game-changer. The ease of use and the results are phenomenal."
+  },
+  "burak": {
+    "name": "Burak",
+    "comment": "Absolutely love it! It has made my life so much easier and I can’t imagine going back to how things were before."
+  },
+  "seda": {
+    "name": "Seda",
+    "comment": "A fantastic product with exceptional quality. From the build to the performance, everything about this is outstanding."
+  }
+}
