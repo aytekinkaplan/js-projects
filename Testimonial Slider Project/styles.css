@@ -9,30 +9,38 @@ body {
   background-color: #f4f4f4;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
+  overflow-x: hidden;
+}
+
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
 }
 
 #slider {
-  width: 100%;
-  max-width: 900px;
   display: flex;
-  flex-direction: column;
-  gap: 70px;
-  padding: 20px;
-  margin-top: 50px;
+  transition: transform 0.5s ease;
 }
 
 .container {
+  flex: 0 0 300px;
   background-color: #6a2fc4;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 30px;
+  margin: 0 15px;
   text-align: center;
   color: white;
   position: relative;
   font-family: "Georgia", serif;
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.05);
 }
 
 .circled_area {
@@ -60,25 +68,38 @@ body {
 }
 
 .comment {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.6;
   font-style: italic;
   margin-bottom: 10px;
 }
 
 .name_area {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: #e0e0e0;
 }
 
-@media (max-width: 768px) {
-  #slider {
-    width: 95%;
-    padding: 10px;
+@keyframes slide {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
+#slider {
+  animation: slide 30s linear infinite;
+}
+
+#slider:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
   .container {
+    flex: 0 0 250px;
     padding: 20px;
   }
 
@@ -89,10 +110,10 @@ body {
   }
 
   .comment {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .name_area {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }

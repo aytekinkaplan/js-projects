@@ -26,7 +26,15 @@ const sliderMaker = (comment, name) => {
 
   container.appendChild(circled_area);
   container.appendChild(reactangle_area);
-  slider.appendChild(container);
+  return container;
+};
+
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 };
 
 fetch("./comments_name.json")
@@ -37,8 +45,16 @@ fetch("./comments_name.json")
     return response.json();
   })
   .then((data) => {
-    Object.values(data).forEach((person) => {
-      sliderMaker(person.comment, person.name);
+    const testimonials = shuffleArray(Object.values(data));
+    testimonials.forEach((person) => {
+      const testimonial = sliderMaker(person.comment, person.name);
+      slider.appendChild(testimonial);
+    });
+
+    // Duplicate testimonials for seamless loop
+    testimonials.forEach((person) => {
+      const testimonial = sliderMaker(person.comment, person.name);
+      slider.appendChild(testimonial);
     });
   })
   .catch((error) => console.error("Error loading JSON:", error));
