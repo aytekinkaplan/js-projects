@@ -6,18 +6,14 @@ const sliderMaker = (comment, name) => {
 
   const circled_area = document.createElement("div");
   circled_area.classList.add("circled_area");
-
   const img = document.createElement("img");
-  // Her kullanıcı için rastgele bir resim oluşturmak için picsum.photos kullanıyoruz.
   img.src = `https://picsum.photos/200?random=${Math.floor(
     Math.random() * 1000
   )}`;
   circled_area.appendChild(img);
 
-  // Yorum ve kişinin ismini ekleme
   const reactangle_area = document.createElement("div");
   reactangle_area.classList.add("reactangle_area");
-
   const commentElem = document.createElement("p");
   commentElem.classList.add("comment");
   commentElem.textContent = comment;
@@ -28,13 +24,11 @@ const sliderMaker = (comment, name) => {
   name_area.textContent = name;
   reactangle_area.appendChild(name_area);
 
-  // Oluşturulan elementleri sırayla ekliyoruz
   container.appendChild(circled_area);
   container.appendChild(reactangle_area);
   slider.appendChild(container);
 };
 
-// JSON verisini fetch ile çekiyoruz
 fetch("./comments_name.json")
   .then((response) => {
     if (!response.ok) {
